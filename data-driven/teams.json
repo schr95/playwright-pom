@@ -1,0 +1,35 @@
+{
+    "format": "NU",
+    "gen": "NU",
+    "pokemons": [
+      {
+        "name": "Cinccino",
+        "item": "Aguav Berry",
+        "ability": "Cute Charm",
+        "moves": ["Encore", "Endeavor", "Calm Mind", "Aqua Tail"],
+        "stats": {
+          "hp": "31",
+          "atk": "31",
+          "def": "200",
+          "spa": "34",
+          "spd": "100",
+          "spe": "112"
+        }
+      },
+      {
+        "name": "Blaziken",
+        "item": "Focus Sash",
+        "ability": "Speed Boost",
+        "moves": ["Flare Blitz", "High Jump Kick", "Protect", "Swords Dance"],
+        "stats": {
+          "hp": "31",
+          "atk": "252",
+          "def": "0",
+          "spa": "0",
+          "spd": "4",
+          "spe": "223"
+        }
+      }
+    ]
+  }
+  
