@@ -1,9 +1,8 @@
 import { test, expect } from '@playwright/test';
 
-test('test', async ({ page }) => {
-  test.setTimeout(60000); 
+test('Test: Creating new pokemon team', async ({ page }) => {
+  test.setTimeout(60000);
   await page.goto('https://play.pokemonshowdown.com/');
-  await page.getByRole('button', { name: 'Retry with HTTP' }).click();
   await page.getByRole('button', { name: 'Teambuilder' }).waitFor({ state: 'visible' });
   await page.getByRole('button', { name: 'Teambuilder' }).click();
   await page.getByRole('button', { name: ' New Team' }).waitFor({ state: 'visible' });
@@ -15,8 +14,10 @@ test('test', async ({ page }) => {
   await page.getByPlaceholder('Search formats').pressSequentially('NU');
   await page.getByRole('button', { name: 'NU ', exact: true }).click();
   await page.getByRole('button', { name: ' Add Pokémon' }).click();
+  await page.getByRole('textbox').waitFor({ state: 'visible' });
   await page.getByRole('textbox').click();
-  await page.getByRole('textbox').pressSequentially('CINCCINO');
+  await page.getByRole('textbox').fill('cinc');
+  await page.getByText('NU Cinccino Cute').waitFor({ state: 'visible' });
   await page.getByText('NU Cinccino Cute').click();
   await page.locator('input[name="item"]').click();
   await page.locator('input[name="item"]').pressSequentially('AGUA');
