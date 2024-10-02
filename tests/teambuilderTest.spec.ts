@@ -2,9 +2,11 @@ import { test, expect } from '@playwright/test';
 
 test('Test: Creating new pokemon team', async ({ page }) => {
   test.setTimeout(60000);
+  //home page
   await page.goto('https://play.pokemonshowdown.com/');
   await page.getByRole('button', { name: 'Teambuilder' }).waitFor({ state: 'visible' });
   await page.getByRole('button', { name: 'Teambuilder' }).click();
+  //teambuilder page
   await page.getByRole('button', { name: ' New Team' }).waitFor({ state: 'visible' });
   await page.getByRole('button', { name: ' New Team' }).click();
   await page.getByRole('button', { name: 'Select a format ' }).waitFor({ state: 'visible' });
@@ -15,6 +17,8 @@ test('Test: Creating new pokemon team', async ({ page }) => {
   await page.getByRole('button', { name: 'NU ', exact: true }).click();
   await page.getByRole('button', { name: ' Add Pokémon' }).click();
   await page.getByRole('textbox').waitFor({ state: 'visible' });
+
+  //pokemon page
   await page.getByRole('textbox').click();
   await page.getByRole('textbox').fill('cinc');
   await page.getByText('NU Cinccino Cute').waitFor({ state: 'visible' });
@@ -49,8 +53,10 @@ test('Test: Creating new pokemon team', async ({ page }) => {
   await page.locator('input[name="stat-spe"]').click();
   await page.locator('input[name="stat-spe"]').pressSequentially('112');
   await expect(page.getByText('0', { exact: true })).toBeVisible();
+  //teambuilder add new pokemon
+  await page.getByRole('button', { name: 'addPokemon' }).click();
+  //teambuilder last validation
   await page.getByRole('button', { name: ' Team' }).click();
   await page.getByRole('button', { name: ' Validate' }).click();
   await expect(page.getByText('Your team is valid for [Gen 9')).toBeVisible();
-  await page.getByRole('button', { name: 'OK', exact: true }).click();
 });
