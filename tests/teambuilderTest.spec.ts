@@ -3,6 +3,25 @@ import { HomePage } from '../pages/HomePage';
 import { TeambuilderPage } from '../pages/TeambuilderPage';
 import { PokemonCreationPage } from '../pages/PokemonCreationPage';
 import * as testData from '../data-driven/teams.json';
+import * as fs from 'fs';
+import * as path from 'path';
+
+function clearScreenshotsDir() {
+  const screenshotsDir = path.join(__dirname, '../screenshots');
+  
+  if (!fs.existsSync(screenshotsDir)) {
+    fs.mkdirSync(screenshotsDir, { recursive: true });
+  } else {
+    fs.readdirSync(screenshotsDir).forEach(file => {
+      const filePath = path.join(screenshotsDir, file);
+      fs.unlinkSync(filePath); 
+    });
+  }
+}
+
+test.beforeAll(async () => {
+  clearScreenshotsDir();
+});
 
 test('Test: Creating new pokemon team', async ({ page }) => {
   test.slow()
@@ -18,10 +37,20 @@ test('Test: Creating new pokemon team', async ({ page }) => {
   await teambuilderPage.newTeam(testData.gen,testData.format);
 
   for(const pokemon of testData.pokemons){
-    await pokemonCreationPage.addPokemon(pokemon);
+    await pokemonCreationPage.clickAddPokemon(); // Hacer clic en "Add Pokémon"
+    await pokemonCreationPage.searchAndSelectPokemon(pokemon.name); // Buscar y seleccionar el Pokémon
+    await pokemonCreationPage.addItem(pokemon.item); // Añadir ítem
+    await pokemonCreationPage.addAbility(pokemon.ability); // Añadir habilidad
+    await pokemonCreationPage.addMoves(pokemon.moves); // Añadir movimientos
+    await pokemonCreationPage.addStats(pokemon.stats);
+
+    await page.screenshot({ path: `screenshots/${pokemon.name}_configured.png` });
+
     await pokemonCreationPage.verifyEvCount();
     await pokemonCreationPage.goBackToTeamBuilder();
   }
+  await page.screenshot({ path: 'screenshots/final_team.png' });
 
-  await teambuilderPage.veerifyValidTeam(testData.gen,testData.format);
+  await teambuilderPage.verifyValidTeam(testData.gen,testData.format);
+
 });

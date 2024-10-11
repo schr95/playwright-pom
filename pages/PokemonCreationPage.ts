@@ -1,47 +1,62 @@
-import { Page, expect } from '@playwright/test';
+import { Page, expect, Locator } from '@playwright/test';
 
 export class PokemonCreationPage {
   readonly page: Page;
+  readonly addPokemonButton: Locator;
+  readonly pokemonSearchBox: Locator;
+  readonly itemInput: Locator;
+  readonly abilityInput: Locator;
+  readonly backButton: Locator;
 
   constructor(page: Page) {
     this.page = page;
+    this.addPokemonButton = page.getByRole('button', { name: ' Add Pokémon' });
+    this.pokemonSearchBox = page.getByRole('textbox');
+    this.itemInput = page.locator('input[name="item"]');
+    this.abilityInput = page.locator('input[name="ability"]');
+    this.backButton = page.locator('button[name="back"]');
   }
 
- // Método para añadir Pokémon con sus datos específicos
- async addPokemon(pokemonData: any) {
-    // Click en "Add Pokémon"
-    await this.page.getByRole('button', { name: ' Add Pokémon' }).click();
+  async clickAddPokemon() {
+    await this.addPokemonButton.click();
+  }
 
-    // Buscar el Pokémon por nombre
-    await this.page.getByRole('textbox').click();
-    await this.page.getByRole('textbox').pressSequentially(pokemonData.name.toUpperCase()); // Nombre del Pokémon en mayúsculas
-    await this.page.getByText(`${pokemonData.name}`).click(); // Seleccionar el Pokémon
+  async searchAndSelectPokemon(pokemonName: string) {
+    await this.pokemonSearchBox.click();
+    await this.pokemonSearchBox.pressSequentially(pokemonName.toUpperCase()); 
+    await this.page.getByText(`${pokemonName}`).click(); 
+  }
 
-    // Añadir ítem
-    await this.page.locator('input[name="item"]').click();
-    await this.page.locator('input[name="item"]').pressSequentially(pokemonData.item);
-    await this.page.getByText(pokemonData.item).click();
+  async addItem(item: string) {
+    await this.itemInput.click();
+    await this.itemInput.pressSequentially(item); 
+    await this.page.getByText(item).click(); 
+  }
 
-    // Añadir habilidad
-    await this.page.locator('input[name="ability"]').click();
-    await this.page.getByText(pokemonData.ability).first().click();
+  async addAbility(ability: string) {
+    await this.abilityInput.click();
+    await this.page.getByText(ability).first().click(); 
+  }
 
-    // Añadir movimientos
-    for (let i = 0; i < pokemonData.moves.length; i++) {
-      await this.page.locator(`input[name="move${i + 1}"]`).click();
-      await this.page.locator(`input[name="move${i + 1}"]`).pressSequentially(pokemonData.moves[i].toUpperCase());
-      await this.page.getByText(pokemonData.moves[i]).click();
+  async addMoves(moves: string[]) {
+    for (let i = 0; i < moves.length; i++) {
+      const moveInput = this.page.locator(`input[name="move${i + 1}"]`);
+      await moveInput.click();
+      await moveInput.pressSequentially(moves[i].toUpperCase()); 
+      await this.page.getByText(moves[i]).click(); 
     }
+  }
 
-    // Añadir estadísticas
-    for (const [stat, value] of Object.entries(pokemonData.stats)) {
-      await this.page.locator(`input[name="stat-${stat}"]`).click();
-      await this.page.locator(`input[name="stat-${stat}"]`).pressSequentially(String(value));
+  async addStats(stats: { [key: string]: string }) {
+    for (const [stat, value] of Object.entries(stats)) {
+      const statInput = this.page.locator(`input[name="stat-${stat}"]`);
+      await statInput.click();
+      await statInput.pressSequentially(String(value)); 
     }
   }
 
   async goBackToTeamBuilder() {
-    await this.page.locator('button[name="back"]').click();
+    await this.backButton.click(); 
   }
 
   async verifyEvCount() {

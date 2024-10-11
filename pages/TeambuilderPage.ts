@@ -1,33 +1,42 @@
-import { Page, expect } from '@playwright/test';
+import { Page, expect, Locator } from '@playwright/test';
 
 export class TeambuilderPage {
   readonly page: Page;
 
+  readonly newTeamButton: Locator;
+  readonly selectFormatButton: Locator;
+  readonly searchFormatsInput: Locator;
+  readonly validateButton: Locator;
+  readonly backToTeamButton: Locator;
+
   constructor(page: Page) {
     this.page = page;
+
+    this.newTeamButton = page.getByRole('button', { name: ' New Team' });
+    this.selectFormatButton = page.getByRole('button', { name: 'Select a format ' });
+    this.searchFormatsInput = page.getByPlaceholder('Search formats');
+    this.validateButton = page.getByRole('button', { name: ' Validate' });
+    this.backToTeamButton = page.getByRole('button', { name: ' Team' });
   }
 
-  // Método para crear un equipo con generación y formato
   async newTeam(generation: string, format: string) {
-    // Click en "New Team"
-    await this.page.getByRole('button', { name: ' New Team' }).waitFor({ state: 'visible' });
-    await this.page.getByRole('button', { name: ' New Team' }).click();
+    await this.newTeamButton.waitFor({ state: 'visible' });
+    await this.newTeamButton.click();
 
-    // Seleccionar el formato del equipo (generación y formato)
-    await this.page.getByRole('button', { name: 'Select a format ' }).waitFor({ state: 'visible' });
-    await this.page.getByRole('button', { name: 'Select a format ' }).click();
+    await this.selectFormatButton.waitFor({ state: 'visible' });
+    await this.selectFormatButton.click();
     
-    await this.page.getByPlaceholder('Search formats').waitFor({ state: 'visible' });
-    await this.page.getByPlaceholder('Search formats').click();
+    await this.searchFormatsInput.waitFor({ state: 'visible' });
+    await this.searchFormatsInput.click();
 
-    // Escribir la generación y formato, por ejemplo: '[Gen 4] NU'
-    await this.page.getByPlaceholder('Search formats').pressSequentially(`[Gen ${generation}] ${format}`);
+    await this.searchFormatsInput.pressSequentially(`[Gen ${generation}] ${format}`);
     await this.page.getByRole('button', { name: `[Gen ${generation}] ${format} ` }).click();
   }
 
-  async veerifyValidTeam(generation: string, format: string) {
-    await this.page.getByRole('button', { name: ' Team' }).click();
-  await this.page.getByRole('button', { name: ' Validate' }).click();
-  await expect(this.page.getByText(`Your team is valid for [${generation}]`)).toBeVisible();
+  async verifyValidTeam(generation: string,format:string) {
+    await this.backToTeamButton.click();
+    await this.validateButton.click();
+    await expect(this.page.getByText(`Your team is valid for [${generation}] ${format}.`)).toBeVisible();
   }
 }
+
