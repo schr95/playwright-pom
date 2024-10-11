@@ -11,19 +11,21 @@ export class PokemonCreationPage {
   constructor(page: Page) {
     this.page = page;
     this.addPokemonButton = page.getByRole('button', { name: ' Add Pokémon' });
-    this.pokemonSearchBox = page.getByRole('textbox');
+    this.pokemonSearchBox = page.locator('input[name="pokemon"]');
     this.itemInput = page.locator('input[name="item"]');
     this.abilityInput = page.locator('input[name="ability"]');
     this.backButton = page.locator('button[name="back"]');
   }
 
   async clickAddPokemon() {
+    await this.addPokemonButton.waitFor({ state: 'visible' });
     await this.addPokemonButton.click();
   }
 
   async searchAndSelectPokemon(pokemonName: string) {
+    await this.pokemonSearchBox.waitFor({ state: 'visible' });
     await this.pokemonSearchBox.click();
-    await this.pokemonSearchBox.pressSequentially(pokemonName.toUpperCase()); 
+    await this.pokemonSearchBox.pressSequentially(pokemonName); 
     await this.page.getByText(`${pokemonName}`).click(); 
   }
 

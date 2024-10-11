@@ -29,19 +29,17 @@ test('Test: Creating new pokemon team', async ({ page }) => {
   const teambuilderPage = new TeambuilderPage(page);
   const pokemonCreationPage = new PokemonCreationPage(page);
 
-
-  //home page
   await homePage.navigate();
   await homePage.clickTeambuilder();
-  //teambuilder page
+  
   await teambuilderPage.newTeam(testData.gen,testData.format);
 
   for(const pokemon of testData.pokemons){
-    await pokemonCreationPage.clickAddPokemon(); // Hacer clic en "Add Pokémon"
-    await pokemonCreationPage.searchAndSelectPokemon(pokemon.name); // Buscar y seleccionar el Pokémon
-    await pokemonCreationPage.addItem(pokemon.item); // Añadir ítem
-    await pokemonCreationPage.addAbility(pokemon.ability); // Añadir habilidad
-    await pokemonCreationPage.addMoves(pokemon.moves); // Añadir movimientos
+    await pokemonCreationPage.clickAddPokemon(); 
+    await pokemonCreationPage.searchAndSelectPokemon(pokemon.name); 
+    await pokemonCreationPage.addItem(pokemon.item); 
+    await pokemonCreationPage.addAbility(pokemon.ability); 
+    await pokemonCreationPage.addMoves(pokemon.moves); 
     await pokemonCreationPage.addStats(pokemon.stats);
 
     await page.screenshot({ path: `screenshots/${pokemon.name}_configured.png` });
@@ -49,6 +47,7 @@ test('Test: Creating new pokemon team', async ({ page }) => {
     await pokemonCreationPage.verifyEvCount();
     await pokemonCreationPage.goBackToTeamBuilder();
   }
+  
   await page.screenshot({ path: 'screenshots/final_team.png' });
 
   await teambuilderPage.verifyValidTeam(testData.gen,testData.format);
