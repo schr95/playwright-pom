@@ -17,17 +17,73 @@
         }
       },
       {
-        "name": "Blaziken",
-        "item": "Focus Sash",
-        "ability": "Speed Boost",
-        "moves": ["Flare Blitz", "High Jump Kick", "Protect", "Swords Dance"],
+        "name": "Mr. Mime",
+        "item": "Never-Melt Ice",
+        "ability": "Soundproof",
+        "moves": ["Psychic", "Dream Eater", "Psybeam", "Double-Edge"],
         "stats": {
-          "hp": "31",
+          "hp": "220",
           "atk": "252",
-          "def": "0",
-          "spa": "0",
+          "def": "20",
+          "spa": "6",
           "spd": "4",
-          "spe": "223"
+          "spe": "6"
+        }
+      },
+      {
+        "name": "Serperior",
+        "item": "Eviolite",
+        "ability": "Contrary",
+        "moves": ["Dragon Pulse", "Knock Off", "Outrage", "Leech Seed"],
+        "stats": {
+          "hp": "34",
+          "atk": "234",
+          "def": "234",
+          "spa": "6",
+          "spd": "0",
+          "spe": "0"
+        }
+      },
+      {
+        "name": "Gengar",
+        "item": "Eviolite",
+        "ability": "Levitate",
+        "moves": ["Dark Pulse", "Focus Blast", "Explosion", "Foul Play"],
+        "stats": {
+          "hp": "233",
+          "atk": "233",
+          "def": "23",
+          "spa": "14",
+          "spd": "5",
+          "spe": "0"
+        }
+      },
+      {
+        "name": "Scizor-Mega",
+        "item": "Scizorite",
+        "ability": "Swarm",
+        "moves": ["Bullet Punch", "Iron Defense", "Morning Sun", "Quick Attack"],
+        "stats": {
+          "hp": "233",
+          "atk": "233",
+          "def": "22",
+          "spa": "20",
+          "spd": "0",
+          "spe": "0"
+        }
+      },
+      {
+        "name": "Latios",
+        "item": "Air Balloon",
+        "ability": "Levitate",
+        "moves": ["Energy Ball", "Grass Knot", "Ice Beam", "Hone Claws"],
+        "stats": {
+          "hp": "244",
+          "atk": "244",
+          "def": "10",
+          "spa": "10",
+          "spd": "0",
+          "spe": "0"
         }
       }
     ]
