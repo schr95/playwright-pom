@@ -1,12 +1,12 @@
 {
-    "format": "NU",
-    "gen": "6",
+    "format": "OU",
+    "gen": "8",
     "pokemons": [
       {
         "name": "Cinccino",
-        "item": "Aguav Berry",
+        "item": "Assault Vest",
         "ability": "Cute Charm",
-        "moves": ["Encore", "Endeavor", "Calm Mind", "Aqua Tail"],
+        "moves": ["Encore", "Aqua Tail", "Calm Mind", "Dazzling Gleam"],
         "stats": {
           "hp": "31",
           "atk": "31",
@@ -17,10 +17,10 @@
         }
       },
       {
-        "name": "Mr. Mime",
-        "item": "Never-Melt Ice",
-        "ability": "Soundproof",
-        "moves": ["Psychic", "Dream Eater", "Psybeam", "Double-Edge"],
+        "name": "Buzzwole",
+        "item": "Eviolite",
+        "ability": "Beast Boost",
+        "moves": ["Counter", "Dual Wingbeat", "Endeavor", "Focus Punch"],
         "stats": {
           "hp": "220",
           "atk": "252",
@@ -31,61 +31,61 @@
         }
       },
       {
-        "name": "Serperior",
-        "item": "Eviolite",
-        "ability": "Contrary",
-        "moves": ["Dragon Pulse", "Knock Off", "Outrage", "Leech Seed"],
-        "stats": {
-          "hp": "34",
-          "atk": "234",
-          "def": "234",
-          "spa": "6",
-          "spd": "0",
-          "spe": "0"
-        }
-      },
-      {
-        "name": "Gengar",
-        "item": "Eviolite",
-        "ability": "Levitate",
-        "moves": ["Dark Pulse", "Focus Blast", "Explosion", "Foul Play"],
-        "stats": {
-          "hp": "233",
-          "atk": "233",
-          "def": "23",
-          "spa": "14",
-          "spd": "5",
-          "spe": "0"
-        }
-      },
-      {
-        "name": "Scizor-Mega",
-        "item": "Scizorite",
-        "ability": "Swarm",
-        "moves": ["Bullet Punch", "Iron Defense", "Morning Sun", "Quick Attack"],
-        "stats": {
-          "hp": "233",
-          "atk": "233",
-          "def": "22",
-          "spa": "20",
-          "spd": "0",
-          "spe": "0"
-        }
-      },
-      {
-        "name": "Latios",
-        "item": "Air Balloon",
-        "ability": "Levitate",
-        "moves": ["Energy Ball", "Grass Knot", "Ice Beam", "Hone Claws"],
-        "stats": {
-          "hp": "244",
-          "atk": "244",
-          "def": "10",
-          "spa": "10",
-          "spd": "0",
-          "spe": "0"
-        }
+      "name": "Dragonite",
+      "item": "Life Orb",
+      "ability": "Inner Focus",
+      "moves": ["Agility", "Superpower", "Air Slash", "Body Press"],
+      "stats": {
+        "hp": "220",
+        "atk": "252",
+        "def": "20",
+        "spa": "6",
+        "spd": "4",
+        "spe": "6"
       }
+    },
+    {
+      "name": "Heatran",
+      "item": "Choice Scarf",
+      "ability": "Flash Fire",
+      "moves": ["Earthquake", "Earth Power", "Rock Slide", "Steel Beam"],
+      "stats": {
+        "hp": "220",
+        "atk": "252",
+        "def": "20",
+        "spa": "6",
+        "spd": "4",
+        "spe": "6"
+      }
+    },
+    {
+      "name": "Barraskewda",
+      "item": "Mago Berry",
+      "ability": "Swift Swim",
+      "moves": ["Agility", "Liquidation", "Brick Break", "Close Combat"],
+      "stats": {
+        "hp": "220",
+        "atk": "252",
+        "def": "20",
+        "spa": "6",
+        "spd": "4",
+        "spe": "6"
+      }
+    },
+    {
+      "name": "Dragalge",
+      "item": "Apicot Berry",
+      "ability": "Poison Point",
+      "moves": ["Aqua Tail", "Hydro Pump", "Gunk Shot", "Facade"],
+      "stats": {
+        "hp": "220",
+        "atk": "252",
+        "def": "20",
+        "spa": "6",
+        "spd": "4",
+        "spe": "6"
+      }
+    }
     ]
   }
   

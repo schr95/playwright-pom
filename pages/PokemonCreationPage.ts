@@ -23,7 +23,7 @@ export class PokemonCreationPage {
   }
 
   async searchAndSelectPokemon(pokemonName: string) {
-    await this.pokemonSearchBox.waitFor({ state: 'visible' });
+    await expect(this.pokemonSearchBox).toBeEnabled();
     await this.pokemonSearchBox.click();
     await this.pokemonSearchBox.pressSequentially(pokemonName); 
     await this.page.getByText(`${pokemonName}`).click(); 

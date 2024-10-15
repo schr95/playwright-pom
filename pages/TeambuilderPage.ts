@@ -23,10 +23,8 @@ export class TeambuilderPage {
     await this.newTeamButton.waitFor({ state: 'visible' });
     await this.newTeamButton.click();
 
-    await this.selectFormatButton.waitFor({ state: 'visible' });
     await this.selectFormatButton.click();
     
-    await this.searchFormatsInput.waitFor({ state: 'visible' });
     await this.searchFormatsInput.click();
 
     await this.searchFormatsInput.pressSequentially(`[Gen ${generation}] ${format}`);
@@ -34,9 +32,8 @@ export class TeambuilderPage {
   }
 
   async verifyValidTeam(generation: string,format:string) {
-    await this.backToTeamButton.click();
     await this.validateButton.click();
-    await expect(this.page.getByText(`Your team is valid for [${generation}] ${format}.`)).toBeVisible();
+    await expect(this.page.getByText(`Your team is valid for [GEN ${generation}] ${format}.`)).toBeVisible();
   }
 }
 
