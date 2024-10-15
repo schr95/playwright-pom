@@ -1,4 +1,4 @@
-# Proyecto de Automatización de Pruebas con Selenium
+# Proyecto de Automatización de Pruebas con Playwright y POM
 
 ## Introducción
 
