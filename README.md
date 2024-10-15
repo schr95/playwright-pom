@@ -20,14 +20,6 @@ Para ejecutar el proyecto, necesitas tener instalados los siguientes componentes
 - **NodeJS**
 - **Playwright**
 
-## Configuración
-
-1. **Clonar el repositorio**:
-
-   ```bash
-   git clone https://github.com/schr95/playwright-pom
-   ```
-
 ## Estructura del Proyecto
 
 El proyecto incluye las siguientes páginas y archivos de prueba:
@@ -44,7 +36,31 @@ El proyecto incluye las siguientes páginas y archivos de prueba:
 
 Durante la ejecución de las pruebas, se generan capturas de pantalla automáticamente después de cada configuración de un Pokémon y después de la creación completa del equipo. Estas capturas se almacenan en la carpeta screenshots.
 
-## Ejecución de las Pruebas
+## Ejecución de las pruebas
 
- PENDIENTE
+1. **Clonar el repositorio**
+
+   ```bash
+   git clone https://github.com/schr95/playwright-pom
+   ```
+2. **Abrir el proyecto**
+
+Se recomienda el uso de visual studio code para abrir el proyecto pero puede hacerse uso del IDE de preferencia
+
+3. **Ejecución**
+
+Para ejecutar las pruebas se puede lanzar el siguiente comando desde la terminal
+
+```bash
+   npx playwright test teambuilderTest.spec.ts --headed
+   ```
+
+4. **Evidencias de la ejecución**   
+
+Las evidencias de la creación de cada pokemon y del equipo completo queda en la carpeta screenshots ubicada en la raiz del proyecto y generada en cada ejecución
+
+## Notas adicionales
+
+* En el código se añade un beforeAll con la limpieza de la carpeta screenshots, esto con el fin de que cuando sea ejecutada desde local tengamos solo las evidencias de la última ejecución.
+* Este proyecto fue desarrollado con fines educativos.
 
