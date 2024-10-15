@@ -1,12 +1,12 @@
 {
-    "format": "NU",
-    "gen": "NU",
+    "format": "OU",
+    "gen": "8",
     "pokemons": [
       {
         "name": "Cinccino",
-        "item": "Aguav Berry",
+        "item": "Assault Vest",
         "ability": "Cute Charm",
-        "moves": ["Encore", "Endeavor", "Calm Mind", "Aqua Tail"],
+        "moves": ["Encore", "Aqua Tail", "Calm Mind", "Dazzling Gleam"],
         "stats": {
           "hp": "31",
           "atk": "31",
@@ -17,19 +17,75 @@
         }
       },
       {
-        "name": "Blaziken",
-        "item": "Focus Sash",
-        "ability": "Speed Boost",
-        "moves": ["Flare Blitz", "High Jump Kick", "Protect", "Swords Dance"],
+        "name": "Buzzwole",
+        "item": "Eviolite",
+        "ability": "Beast Boost",
+        "moves": ["Counter", "Dual Wingbeat", "Endeavor", "Focus Punch"],
         "stats": {
-          "hp": "31",
+          "hp": "220",
           "atk": "252",
-          "def": "0",
-          "spa": "0",
+          "def": "20",
+          "spa": "6",
           "spd": "4",
-          "spe": "223"
+          "spe": "6"
         }
+      },
+      {
+      "name": "Dragonite",
+      "item": "Life Orb",
+      "ability": "Inner Focus",
+      "moves": ["Agility", "Superpower", "Air Slash", "Body Press"],
+      "stats": {
+        "hp": "220",
+        "atk": "252",
+        "def": "20",
+        "spa": "6",
+        "spd": "4",
+        "spe": "6"
       }
+    },
+    {
+      "name": "Heatran",
+      "item": "Choice Scarf",
+      "ability": "Flash Fire",
+      "moves": ["Earthquake", "Earth Power", "Rock Slide", "Steel Beam"],
+      "stats": {
+        "hp": "220",
+        "atk": "252",
+        "def": "20",
+        "spa": "6",
+        "spd": "4",
+        "spe": "6"
+      }
+    },
+    {
+      "name": "Barraskewda",
+      "item": "Mago Berry",
+      "ability": "Swift Swim",
+      "moves": ["Agility", "Liquidation", "Brick Break", "Close Combat"],
+      "stats": {
+        "hp": "220",
+        "atk": "252",
+        "def": "20",
+        "spa": "6",
+        "spd": "4",
+        "spe": "6"
+      }
+    },
+    {
+      "name": "Dragalge",
+      "item": "Apicot Berry",
+      "ability": "Poison Point",
+      "moves": ["Aqua Tail", "Hydro Pump", "Gunk Shot", "Facade"],
+      "stats": {
+        "hp": "220",
+        "atk": "252",
+        "def": "20",
+        "spa": "6",
+        "spd": "4",
+        "spe": "6"
+      }
+    }
     ]
   }
   
